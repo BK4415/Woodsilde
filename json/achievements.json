@@ -1,6 +1,5 @@
-
-Action: file_editor create /app/public_game/json/achievements.json --file-text "{
-  \"achievements\": [
+{
+   \"achievements\": [
     { \"id\": \"first_win\",      \"name\": \"First Solve\",     \"desc\": \"Solve any puzzle for the first time.\" },
     { \"id\": \"solve_3x3\",      \"name\": \"Tiny Master\",     \"desc\": \"Solve a 3×3 puzzle.\" },
     { \"id\": \"solve_4x4\",      \"name\": \"Classic Solver\",  \"desc\": \"Solve a 4×4 puzzle.\" },
@@ -16,5 +15,3 @@ Action: file_editor create /app/public_game/json/achievements.json --file-text "
     { \"id\": \"streak_10\",      \"name\": \"Unstoppable\",     \"desc\": \"Win 10 puzzles in a row.\" }
   ]
 }
-"
-Observation: Create successful: /app/public_game/json/achievements.json
