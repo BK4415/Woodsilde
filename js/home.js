@@ -1,5 +1,4 @@
-Now creating the home and game logic files.
-Action: file_editor create /app/public_game/js/home.js --file-text "/* Wood Puzzle — Home page logic. */
+/* Wood Puzzle — Home page logic. */
 (function () {
   'use strict';
 
@@ -333,5 +332,3 @@ Action: file_editor create /app/public_game/js/home.js --file-text "/* Wood Puzz
     resizeT = setTimeout(rebuildPreview, 120);
   });
 })();
-"
-Observation: Create successful: /app/public_game/js/home.js
