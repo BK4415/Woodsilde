@@ -1,5 +1,4 @@
-
-Action: file_editor create /app/public_game/sw.js --file-text "/* Wood Puzzle Service Worker — fully offline */
+/* Wood Puzzle Service Worker — fully offline */
 const CACHE = 'wood-puzzle-v1.0.0';
 const ASSETS = [
   './',
@@ -61,5 +60,3 @@ self.addEventListener('fetch', (event) => {
     })
   );
 });
-"
-Observation: Create successful: /app/public_game/sw.js
