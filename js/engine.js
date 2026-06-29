@@ -1,4 +1,4 @@
- "/* =========================================================
+ /* =========================================================
    Wood Puzzle Engine — premium multi-tile sliding puzzle.
    - Supports Classic / Snake / Spiral / Upside Down modes
    - Number or Photo tile rendering
