@@ -1,0 +1,18 @@
+
+Action: file_editor create /app/public_game/manifest.json --file-text "{
+  \"name\": \"Wood Puzzle\",
+  \"short_name\": \"WoodPuzzle\",
+  \"description\": \"Premium offline sliding puzzle game.\",
+  \"start_url\": \"./index.html\",
+  \"scope\": \"./\",
+  \"display\": \"standalone\",
+  \"orientation\": \"portrait\",
+  \"background_color\": \"#1a1208\",
+  \"theme_color\": \"#3d2817\",
+  \"icons\": [
+    { \"src\": \"assets/icons/icon-192.png\", \"sizes\": \"192x192\", \"type\": \"image/png\", \"purpose\": \"any maskable\" },
+    { \"src\": \"assets/icons/icon-512.png\", \"sizes\": \"512x512\", \"type\": \"image/png\", \"purpose\": \"any maskable\" }
+  ]
+}
+"
+Observation: Create successful: /app/public_game/manifest.json
