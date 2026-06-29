@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang=\"en\">
+<head>
+  <meta charset=\"UTF-8\" />
+  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover\" />
+  <meta name=\"theme-color\" content=\"#3d2817\" />
+  <meta name=\"apple-mobile-web-app-capable\" content=\"yes\" />
+  <meta name=\"mobile-web-app-capable\" content=\"yes\" />
+  <meta name=\"apple-mobile-web-app-status-bar-style\" content=\"black-translucent\" />
+  <title>Wood Puzzle</title>
+  <link rel=\"manifest\" href=\"manifest.json\" />
+  <link rel=\"icon\" type=\"image/png\" href=\"assets/icons/icon-192.png\" />
+  <link rel=\"apple-touch-icon\" href=\"assets/icons/icon-192.png\" />
+  <link rel=\"stylesheet\" href=\"css/main.css\" />
+</head>
+<body class=\"page-home\">
+  <!-- Loading Screen -->
+  <div id=\"loading-screen\" data-testid=\"loading-screen\">
+    <div class=\"loading-inner\">
+      <div class=\"loading-logo\" aria-hidden=\"true\">
+        <img src=\"assets/images/logo.png\" alt=\"\" onerror=\"this.style.display='none'\" />
+        <div class=\"loading-logo-fallback\">WP</div>
+      </div>
+      <h1 class=\"loading-title\">Wood Puzzle</h1>
+      <div class=\"loading-text\" data-testid=\"loading-text\">Loading<span class=\"dots\"><span>.</span><span>.</span><span>.</span></span></div>
+    </div>
+  </div>
+
+  <!-- Mobile frame -->
+  <div class=\"device-frame\" id=\"device-frame\">
+    <div class=\"app-shell\" id=\"app-shell\">
+
+      <!-- Top bar -->
+      <header class=\"topbar\">
+        <button class=\"icon-btn\" id=\"open-info\" aria-label=\"Information\" data-testid=\"open-info-btn\">
+          <span class=\"svg-slot\" data-icon=\"info\"></span>
+        </button>
+        <div class=\"topbar-title\">Wood Puzzle</div>
+        <button class=\"icon-btn\" id=\"open-dashboard\" aria-label=\"Dashboard\" data-testid=\"open-dashboard-btn\">
+          <span class=\"svg-slot\" data-icon=\"dashboard\"></span>
+        </button>
+      </header>
+
+      <!-- Home content -->
+      <main class=\"home-main\">
+        <div class=\"brand\">
+          <div class=\"brand-logo\">
+            <img src=\"assets/images/logo.png\" alt=\"\" onerror=\"this.parentNode.classList.add('no-logo')\" />
+            <div class=\"brand-logo-fallback\">WP</div>
+          </div>
+          <div class=\"brand-name\" data-testid=\"brand-name\">Wood Puzzle</div>
+          <div class=\"brand-tag\">Premium Sliding Puzzle</div>
+        </div>
+
+        <!-- Style selector -->
+        <div class=\"selector\" data-testid=\"style-selector\">
+          <button class=\"sel-arrow\" id=\"style-prev\" aria-label=\"Previous style\" data-testid=\"style-prev-btn\"><span class=\"svg-slot\" data-icon=\"prev\"></span></button>
+          <div class=\"sel-label\"><span class=\"sel-cap\">Style</span><span class=\"sel-val\" id=\"style-val\" data-testid=\"style-val\">Number</span></div>
+          <button class=\"sel-arrow\" id=\"style-next\" aria-label=\"Next style\" data-testid=\"style-next-btn\"><span class=\"svg-slot\" data-icon=\"next\"></span></button>
+        </div>
+
+        <!-- Live preview board -->
+        <div class=\"preview-wrap\">
+          <div id=\"preview-board\" class=\"board preview\" data-testid=\"preview-board\"></div>
+        </div>
+
+        <!-- Sub-selector for photo style -->
+        <div class=\"selector small\" id=\"photo-picker\" data-testid=\"photo-picker\" hidden>
+          <button class=\"sel-arrow\" id=\"photo-prev\" aria-label=\"Previous photo\" data-testid=\"photo-prev-btn\"><span class=\"svg-slot\" data-icon=\"prev\"></span></button>
+          <div class=\"sel-label\"><span class=\"sel-cap\">Photo</span><span class=\"sel-val\" id=\"photo-val\" data-testid=\"photo-val\">photo1</span></div>
+          <button class=\"sel-arrow\" id=\"photo-next\" aria-label=\"Next photo\" data-testid=\"photo-next-btn\"><span class=\"svg-slot\" data-icon=\"next\"></span></button>
+          <button class=\"upload-btn\" id=\"upload-btn\" aria-label=\"Upload image\" data-testid=\"upload-btn\">
+            <span class=\"svg-slot\" data-icon=\"upload\"></span>
+          </button>
+          <input type=\"file\" id=\"upload-input\" accept=\"image/*\" hidden />
+        </div>
+
+        <!-- Board size -->
+        <div class=\"selector\">
+          <button class=\"sel-arrow\" id=\"size-prev\" aria-label=\"Smaller board\" data-testid=\"size-prev-btn\"><span class=\"svg-slot\" data-icon=\"prev\"></span></button>
+          <div class=\"sel-label\"><span class=\"sel-cap\">Board</span><span class=\"sel-val\" id=\"size-val\" data-testid=\"size-val\">4×4</span></div>
+          <button class=\"sel-arrow\" id=\"size-next\" aria-label=\"Larger board\" data-testid=\"size-next-btn\"><span class=\"svg-slot\" data-icon=\"next\"></span></button>
+        </div>
+
+        <!-- Mode -->
+        <div class=\"selector\" id=\"mode-row\" data-testid=\"mode-selector\">
+          <button class=\"sel-arrow\" id=\"mode-prev\" aria-label=\"Previous mode\" data-testid=\"mode-prev-btn\"><span class=\"svg-slot\" data-icon=\"prev\"></span></button>
+          <div class=\"sel-label\"><span class=\"sel-cap\">Mode</span><span class=\"sel-val\" id=\"mode-val\" data-testid=\"mode-val\">Classic</span></div>
+          <button class=\"sel-arrow\" id=\"mode-next\" aria-label=\"Next mode\" data-testid=\"mode-next-btn\"><span class=\"svg-slot\" data-icon=\"next\"></span></button>
+        </div>
+
+        <!-- Play -->
+        <button class=\"play-btn\" id=\"play-btn\" data-testid=\"play-btn\">
+          <span class=\"svg-slot\" data-icon=\"play\"></span>
+          <span class=\"play-label\">Play</span>
+        </button>
+
+        <!-- Resume -->
+        <div class=\"resume-wrap\" id=\"resume-wrap\" hidden>
+          <button class=\"resume-btn\" id=\"resume-btn\" data-testid=\"resume-btn\">
+            <span class=\"resume-title\">Resume</span>
+            <span class=\"resume-meta\" id=\"resume-meta\">—</span>
+          </button>
+        </div>
+      </main>
+
+      <!-- Information panel -->
+      <aside class=\"side-panel left\" id=\"info-panel\" data-testid=\"info-panel\" aria-hidden=\"true\">
+        <div class=\"panel-head\">
+          <div class=\"panel-title\">Information</div>
+          <button class=\"icon-btn\" id=\"close-info\" aria-label=\"Close\" data-testid=\"close-info-btn\"><span class=\"svg-slot\" data-icon=\"close\"></span></button>
+        </div>
+        <div class=\"panel-body\">
+          <a class=\"panel-item\" href=\"about.html\" data-testid=\"link-about\"><span class=\"svg-slot\" data-icon=\"info\"></span><span>About</span></a>
+          <a class=\"panel-item\" href=\"guide.html\" data-testid=\"link-guide\"><span class=\"svg-slot\" data-icon=\"hint\"></span><span>Guide &amp; How To Play</span></a>
+          <div class=\"panel-section\">Settings</div>
+          <div class=\"panel-row\">
+            <span class=\"svg-slot\" data-icon=\"sound\"></span>
+            <span class=\"panel-row-label\">Sound</span>
+            <label class=\"switch\"><input type=\"checkbox\" id=\"toggle-sound\" data-testid=\"toggle-sound\" /><span class=\"slider\"></span></label>
+          </div>
+          <div class=\"panel-row\">
+            <span class=\"svg-slot\" data-icon=\"vibration\"></span>
+            <span class=\"panel-row-label\">Vibration</span>
+            <label class=\"switch\"><input type=\"checkbox\" id=\"toggle-vibration\" data-testid=\"toggle-vibration\" /><span class=\"slider\"></span></label>
+          </div>
+          <div class=\"panel-section\">Legal</div>
+          <a class=\"panel-item\" href=\"privacy.html\" data-testid=\"link-privacy\"><span class=\"svg-slot\" data-icon=\"info\"></span><span>Privacy Policy</span></a>
+          <a class=\"panel-item\" href=\"terms.html\" data-testid=\"link-terms\"><span class=\"svg-slot\" data-icon=\"info\"></span><span>Terms &amp; Conditions</span></a>
+          <div class=\"panel-footer\">
+            <div>Version <span id=\"version-label\">1.0.0</span></div>
+            <div>Credits: Wood Puzzle Team</div>
+            <div>Contact: contact@woodpuzzle.app</div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Dashboard panel -->
+      <aside class=\"side-panel right\" id=\"dashboard-panel\" data-testid=\"dashboard-panel\" aria-hidden=\"true\">
+        <div class=\"panel-head\">
+          <div class=\"panel-title\">Dashboard</div>
+          <button class=\"icon-btn\" id=\"close-dashboard\" aria-label=\"Close\" data-testid=\"close-dashboard-btn\"><span class=\"svg-slot\" data-icon=\"close\"></span></button>
+        </div>
+        <div class=\"panel-body\" id=\"dashboard-body\" data-testid=\"dashboard-body\">
+          <!-- populated by JS -->
+        </div>
+      </aside>
+
+      <div class=\"scrim\" id=\"scrim\" data-testid=\"scrim\"></div>
+    </div>
+  </div>
+
+  <script src=\"js/icons.js\"></script>
+  <script src=\"js/storage.js\"></script>
+  <script src=\"js/engine.js\"></script>
+  <script src=\"js/home.js\"></script>
+  <script>
+    // Service worker (best-effort, never blocks UI)
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js').catch(() => {});
+      });
+    }
+  </script>
+</body>
+</html>
