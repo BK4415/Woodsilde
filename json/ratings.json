@@ -1,5 +1,4 @@
-
-Action: file_editor create /app/public_game/json/ratings.json --file-text "{
+{
   \"comment\": \"Star rating thresholds per board size. Stars are awarded based on the LOWER (worse) of moves-rating and time-rating. 3 stars = excellent, 2 = good, 1 = solved.\",
   \"ratings\": {
     \"3\": { \"moves\": { \"three\": 30,  \"two\": 60  }, \"time\": { \"three\": 45,  \"two\": 120  } },
@@ -9,5 +8,3 @@ Action: file_editor create /app/public_game/json/ratings.json --file-text "{
     \"7\": { \"moves\": { \"three\": 450, \"two\": 900 }, \"time\": { \"three\": 720, \"two\": 1800 } }
   }
 }
-"
-Observation: Create successful: /app/public_game/json/ratings.json
