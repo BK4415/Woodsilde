@@ -1,5 +1,4 @@
-
-Action: file_editor create /app/public_game/manifest.json --file-text "{
+{
   \"name\": \"Wood Puzzle\",
   \"short_name\": \"WoodPuzzle\",
   \"description\": \"Premium offline sliding puzzle game.\",
@@ -14,5 +13,3 @@ Action: file_editor create /app/public_game/manifest.json --file-text "{
     { \"src\": \"assets/icons/icon-512.png\", \"sizes\": \"512x512\", \"type\": \"image/png\", \"purpose\": \"any maskable\" }
   ]
 }
-"
-Observation: Create successful: /app/public_game/manifest.json
