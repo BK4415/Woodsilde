@@ -1,5 +1,4 @@
-
-Action: file_editor create /app/public_game/js/game.js --file-text "/* Wood Puzzle — Game page logic. */
+/* Wood Puzzle — Game page logic. */
 (function () {
   'use strict';
 
@@ -428,5 +427,3 @@ Action: file_editor create /app/public_game/js/game.js --file-text "/* Wood Puzz
   // Save on unload
   window.addEventListener('beforeunload', () => { saveResume(); });
 })();
-"
-Observation: Create successful: /app/public_game/js/game.js
