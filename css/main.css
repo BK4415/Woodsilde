@@ -358,19 +358,16 @@ img { -webkit-user-drag: none; user-select: none; pointer-events: none; }
   justify-content: center;
 }
 
- {
-  box-sizing: border-box;
-  -webkit-tap-highlight-color: transparent;
-  -webkit-touch-callout: none;
-  -webkit-user-drag: none;
-}" --new-str "* {
+* {
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
   -webkit-user-drag: none;
 }
 
-[hidden] { display: none !important; }"
+[hidden] {
+  display: none !important;
+
 
 /* Preview wrap */
 .preview-wrap {
