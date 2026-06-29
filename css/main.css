@@ -1,5 +1,4 @@
-Now creating the main CSS and the sliding engine. The engine is the heart of the game.
-Action: file_editor create /app/public_game/css/main.css --file-text "/* =========================================================
+/* =========================================================
    Wood Puzzle — Premium offline sliding puzzle styles
    ========================================================= */
 
@@ -358,6 +357,20 @@ img { -webkit-user-drag: none; user-select: none; pointer-events: none; }
   align-items: center;
   justify-content: center;
 }
+
+ {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-drag: none;
+}" --new-str "* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-drag: none;
+}
+
+[hidden] { display: none !important; }"
 
 /* Preview wrap */
 .preview-wrap {
