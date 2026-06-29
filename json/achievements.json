@@ -1,0 +1,20 @@
+
+Action: file_editor create /app/public_game/json/achievements.json --file-text "{
+  \"achievements\": [
+    { \"id\": \"first_win\",      \"name\": \"First Solve\",     \"desc\": \"Solve any puzzle for the first time.\" },
+    { \"id\": \"solve_3x3\",      \"name\": \"Tiny Master\",     \"desc\": \"Solve a 3×3 puzzle.\" },
+    { \"id\": \"solve_4x4\",      \"name\": \"Classic Solver\",  \"desc\": \"Solve a 4×4 puzzle.\" },
+    { \"id\": \"solve_5x5\",      \"name\": \"Big Brain\",       \"desc\": \"Solve a 5×5 puzzle.\" },
+    { \"id\": \"solve_6x6\",      \"name\": \"Wood Artisan\",    \"desc\": \"Solve a 6×6 puzzle.\" },
+    { \"id\": \"solve_7x7\",      \"name\": \"Grand Master\",    \"desc\": \"Solve a 7×7 puzzle.\" },
+    { \"id\": \"three_stars\",    \"name\": \"Triple Star\",     \"desc\": \"Earn 3 stars on any puzzle.\" },
+    { \"id\": \"snake_solver\",   \"name\": \"Snake Charmer\",   \"desc\": \"Solve a puzzle in Snake mode.\" },
+    { \"id\": \"spiral_solver\",  \"name\": \"Spiral Sage\",     \"desc\": \"Solve a puzzle in Spiral mode.\" },
+    { \"id\": \"upside_solver\",  \"name\": \"World Flipper\",   \"desc\": \"Solve a puzzle in Upside Down mode.\" },
+    { \"id\": \"photo_solver\",   \"name\": \"Picture Perfect\", \"desc\": \"Solve a photo puzzle.\" },
+    { \"id\": \"streak_3\",       \"name\": \"On a Roll\",       \"desc\": \"Win 3 puzzles in a row.\" },
+    { \"id\": \"streak_10\",      \"name\": \"Unstoppable\",     \"desc\": \"Win 10 puzzles in a row.\" }
+  ]
+}
+"
+Observation: Create successful: /app/public_game/json/achievements.json
