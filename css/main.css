@@ -1,4 +1,4 @@
-Now  /* =========================================================
+/* =========================================================
    Wood Puzzle — Premium offline sliding puzzle styles
    ========================================================= */
 
@@ -882,5 +882,85 @@ img { -webkit-user-drag: none; user-select: none; pointer-events: none; }
 .win-stars .svg-slot.lit { color: var(--gold-bright); filter: drop-shadow(0 0 6px rgba(230, 179, 90, 0.7)); animation: starPop 0.5s cubic-bezier(0.2, 1.4, 0.4, 1); }
 @keyframes starPop {
     0% { transform: scale(0); opacity: 0; }
-    60% { transform: scale(1.3); opacity: 1; }
-  
+        60%  { transform: scale(1.3); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+}
+.win-new-record {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--gold);
+    color: var(--wood-burnt);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+.win-new-record .svg-slot { width: 14px; height: 14px; }
+.win-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    margin-bottom: 16px;
+    text-align: center;
+}
+.win-stats > div {
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    padding: 6px 4px;
+}
+.win-cap {
+    display: block;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(245, 230, 200, 0.55);
+}
+}
+.win-val {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--cream);
+    margin-top: 2px;
+}
+
+/* ============ Docs pages ============ */
+.page-doc .app-shell { background: linear-gradient(170deg, var(--bg-mid), var(--bg-deep)); }
+.doc {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    padding: 14px 22px 30px;
+    color: var(--cream);
+    line-height: 1.6;
+}
+.doc h1 {
+    font-size: 24px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold-bright);
+    margin: 8px 0 4px;
+}
+.doc h2 {
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold-bright);
+    margin: 20px 0 4px;
+}
+.doc p, .doc li { font-size: 14px; color: rgba(245, 230, 200, 0.85); }
+.doc ul { padding-left: 20px; }
+.doc .lede { font-size: 15px; color: rgba(245, 230, 200, 0.9); margin-bottom: 16px; }
+
+/* Image protection (best-effort) */
+img, .tile.photo {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    pointer-events: none;
+}
+.tile.photo { pointer-events: auto; }
