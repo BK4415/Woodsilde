@@ -1,0 +1,136 @@
+
+Action: file_editor create /app/public_game/game.html --file-text "<!DOCTYPE html>
+<html lang=\"en\">
+<head>
+  <meta charset=\"UTF-8\" />
+  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover\" />
+  <meta name=\"theme-color\" content=\"#3d2817\" />
+  <title>Wood Puzzle — Play</title>
+  <link rel=\"manifest\" href=\"manifest.json\" />
+  <link rel=\"icon\" type=\"image/png\" href=\"assets/icons/icon-192.png\" />
+  <link rel=\"stylesheet\" href=\"css/main.css\" />
+</head>
+<body class=\"page-game\">
+  <div id=\"loading-screen\" data-testid=\"loading-screen\">
+    <div class=\"loading-inner\">
+      <div class=\"loading-logo\" aria-hidden=\"true\">
+        <img src=\"assets/images/logo.png\" alt=\"\" onerror=\"this.style.display='none'\" />
+        <div class=\"loading-logo-fallback\">WP</div>
+      </div>
+      <h1 class=\"loading-title\">Wood Puzzle</h1>
+      <div class=\"loading-text\">Loading<span class=\"dots\"><span>.</span><span>.</span><span>.</span></span></div>
+    </div>
+  </div>
+
+  <div class=\"device-frame\">
+    <div class=\"app-shell\">
+      <!-- Top bar (back) -->
+      <header class=\"topbar\">
+        <button class=\"icon-btn\" id=\"back-home\" aria-label=\"Home\" data-testid=\"back-home-btn\">
+          <span class=\"svg-slot\" data-icon=\"home\"></span>
+        </button>
+        <div class=\"topbar-title\" id=\"game-title\" data-testid=\"game-title\">Wood Puzzle</div>
+        <button class=\"icon-btn\" id=\"pause-btn\" aria-label=\"Pause\" data-testid=\"pause-btn\">
+          <span class=\"svg-slot\" data-icon=\"pause\"></span>
+        </button>
+      </header>
+
+      <!-- HUD -->
+      <div class=\"hud\" data-testid=\"hud\">
+        <div class=\"hud-cell\" data-testid=\"hud-moves\">
+          <span class=\"svg-slot\" data-icon=\"moves\"></span>
+          <span class=\"hud-cap\">Moves</span>
+          <span class=\"hud-val\" id=\"moves-val\">0</span>
+        </div>
+        <div class=\"hud-cell\" data-testid=\"hud-timer\">
+          <span class=\"svg-slot\" data-icon=\"timer\"></span>
+          <span class=\"hud-cap\">Time</span>
+          <span class=\"hud-val\" id=\"timer-val\">00:00</span>
+        </div>
+        <div class=\"hud-cell\" data-testid=\"hud-board\">
+          <span class=\"hud-cap\">Board</span>
+          <span class=\"hud-val\" id=\"board-val\">4×4</span>
+        </div>
+        <button class=\"hud-cell hud-toggle\" id=\"number-toggle\" data-testid=\"number-toggle\" hidden>
+          <span class=\"hud-cap\">Numbers</span>
+          <span class=\"hud-val\" id=\"numbers-state\">ON</span>
+        </button>
+      </div>
+
+      <!-- Game board -->
+      <div class=\"board-wrap\">
+        <div id=\"game-board\" class=\"board play\" data-testid=\"game-board\"></div>
+      </div>
+
+      <!-- Buttons under board -->
+      <div class=\"game-controls\" data-testid=\"game-controls\">
+        <button class=\"ctrl-btn\" id=\"shuffle-btn\" data-testid=\"shuffle-btn\"><span class=\"svg-slot\" data-icon=\"shuffle\"></span><span>Shuffle</span></button>
+        <button class=\"ctrl-btn\" id=\"hint-btn\" data-testid=\"hint-btn\"><span class=\"svg-slot\" data-icon=\"hint\"></span><span>Hint</span></button>
+        <button class=\"ctrl-btn\" id=\"undo-btn\" data-testid=\"undo-btn\"><span class=\"svg-slot\" data-icon=\"undo\"></span><span>Undo</span></button>
+        <button class=\"ctrl-btn\" id=\"redo-btn\" data-testid=\"redo-btn\"><span class=\"svg-slot\" data-icon=\"redo\"></span><span>Redo</span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pause popup -->
+  <div class=\"popup-mask\" id=\"pause-popup\" data-testid=\"pause-popup\" hidden>
+    <div class=\"popup wood\">
+      <div class=\"popup-title\">Paused</div>
+      <div class=\"popup-body\">Take a breath. Your progress is safe.</div>
+      <div class=\"popup-actions\">
+        <button class=\"ctrl-btn primary\" id=\"resume-game\" data-testid=\"resume-game-btn\"><span class=\"svg-slot\" data-icon=\"resume\"></span><span>Resume</span></button>
+        <button class=\"ctrl-btn\" id=\"quit-game\" data-testid=\"quit-game-btn\"><span class=\"svg-slot\" data-icon=\"home\"></span><span>Home</span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Shuffle confirmation -->
+  <div class=\"popup-mask\" id=\"shuffle-popup\" data-testid=\"shuffle-popup\" hidden>
+    <div class=\"popup wood\">
+      <div class=\"popup-title\">Restart Puzzle?</div>
+      <div class=\"popup-body\">Current progress will be lost.</div>
+      <div class=\"popup-actions\">
+        <button class=\"ctrl-btn primary\" id=\"confirm-shuffle\" data-testid=\"confirm-shuffle-btn\"><span class=\"svg-slot\" data-icon=\"shuffle\"></span><span>Yes, Shuffle</span></button>
+        <button class=\"ctrl-btn\" id=\"cancel-shuffle\" data-testid=\"cancel-shuffle-btn\"><span>Cancel</span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Win popup -->
+  <div class=\"popup-mask\" id=\"win-popup\" data-testid=\"win-popup\" hidden>
+    <div class=\"popup wood win-popup\">
+      <div class=\"popup-title\">Congratulations!</div>
+      <div class=\"win-stars\" id=\"win-stars\" data-testid=\"win-stars\"></div>
+      <div class=\"win-new-record\" id=\"win-new-record\" data-testid=\"win-new-record\" hidden><span class=\"svg-slot\" data-icon=\"trophy\"></span> New Record</div>
+      <div class=\"win-stats\">
+        <div><span class=\"win-cap\">Board</span><span class=\"win-val\" id=\"win-board\"></span></div>
+        <div><span class=\"win-cap\">Mode</span><span class=\"win-val\" id=\"win-mode\"></span></div>
+        <div><span class=\"win-cap\">Moves</span><span class=\"win-val\" id=\"win-moves\"></span></div>
+        <div><span class=\"win-cap\">Time</span><span class=\"win-val\" id=\"win-time\"></span></div>
+      </div>
+      <div class=\"popup-actions\">
+        <button class=\"ctrl-btn primary\" id=\"play-again\" data-testid=\"play-again-btn\"><span class=\"svg-slot\" data-icon=\"play\"></span><span>Play Again</span></button>
+        <button class=\"ctrl-btn\" id=\"go-home\" data-testid=\"go-home-btn\"><span class=\"svg-slot\" data-icon=\"home\"></span><span>Home</span></button>
+        <button class=\"ctrl-btn\" id=\"share-btn\" data-testid=\"share-btn\"><span class=\"svg-slot\" data-icon=\"share\"></span><span>Share</span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hidden canvas for share -->
+  <canvas id=\"share-canvas\" width=\"900\" height=\"1200\" hidden></canvas>
+
+  <script src=\"js/icons.js\"></script>
+  <script src=\"js/storage.js\"></script>
+  <script src=\"js/engine.js\"></script>
+  <script src=\"js/game.js\"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js').catch(() => {});
+      });
+    }
+  </script>
+</body>
+</html>
+"
+Observation: Create successful: /app/public_game/game.html
