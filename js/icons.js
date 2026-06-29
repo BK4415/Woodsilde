@@ -1,4 +1,4 @@
-Action: file_editor create /app/public_game/js/icons.js --file-text "/* Wood Puzzle — SVG icon library.
+/* Wood Puzzle — SVG icon library.
    Renders inline SVGs into any element with class=\"svg-slot\" and data-icon=\"<name>\". */
 (function () {
   'use strict';
@@ -69,5 +69,3 @@ Action: file_editor create /app/public_game/js/icons.js --file-text "/* Wood Puz
     replaceAll();
   }
 })();
-"
-Observation: Create successful: /app/public_game/js/icons.js
