@@ -1,72 +1,71 @@
-
-Action: file_editor create /app/public_game/game.html --file-text "<!DOCTYPE html>
-<html lang=\"en\">
+<!DOCTYPE html>
+<html lang=\en\>
 <head>
-  <meta charset=\"UTF-8\" />
-  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover\" />
-  <meta name=\"theme-color\" content=\"#3d2817\" />
+  <meta charset=\UTF-8\ />
+  <meta name=\viewport\ content=\width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover\ />
+  <meta name=\theme-color\ content=\#3d2817\ />
   <title>Wood Puzzle — Play</title>
-  <link rel=\"manifest\" href=\"manifest.json\" />
-  <link rel=\"icon\" type=\"image/png\" href=\"assets/icons/icon-192.png\" />
-  <link rel=\"stylesheet\" href=\"css/main.css\" />
+  <link rel=\manifest\ href=\manifest.json\ />
+  <link rel=\icon\ type=\image/png\ href=\assets/icons/icon-192.png\ />
+  <link rel=\stylesheet\ href=\css/main.css\ />
 </head>
-<body class=\"page-game\">
-  <div id=\"loading-screen\" data-testid=\"loading-screen\">
-    <div class=\"loading-inner\">
-      <div class=\"loading-logo\" aria-hidden=\"true\">
-        <img src=\"assets/images/logo.png\" alt=\"\" onerror=\"this.style.display='none'\" />
-        <div class=\"loading-logo-fallback\">WP</div>
+<body class=\page-game\>
+  <div id=\loading-screen\ data-testid=\loading-screen\>
+    <div class=\loading-inner\>
+      <div class=\loading-logo\ aria-hidden=\true\>
+        <img src=\assets/images/logo.png\ alt=\\ onerror=\this.style.display='none'\ />
+        <div class=\loading-logo-fallback\>WP</div>
       </div>
-      <h1 class=\"loading-title\">Wood Puzzle</h1>
-      <div class=\"loading-text\">Loading<span class=\"dots\"><span>.</span><span>.</span><span>.</span></span></div>
+      <h1 class=\loading-title\>Wood Puzzle</h1>
+      <div class=\loading-text\>Loading<span class=\dots\><span>.</span><span>.</span><span>.</span></span></div>
     </div>
   </div>
 
-  <div class=\"device-frame\">
-    <div class=\"app-shell\">
+  <div class=\device-frame\>
+    <div class=\app-shell\>
       <!-- Top bar (back) -->
-      <header class=\"topbar\">
-        <button class=\"icon-btn\" id=\"back-home\" aria-label=\"Home\" data-testid=\"back-home-btn\">
-          <span class=\"svg-slot\" data-icon=\"home\"></span>
+      <header class=\topbar\>
+        <button class=\icon-btn\ id=\back-home\ aria-label=\Home\ data-testid=\back-home-btn\>
+          <span class=\svg-slot\ data-icon=\home\></span>
         </button>
-        <div class=\"topbar-title\" id=\"game-title\" data-testid=\"game-title\">Wood Puzzle</div>
-        <button class=\"icon-btn\" id=\"pause-btn\" aria-label=\"Pause\" data-testid=\"pause-btn\">
-          <span class=\"svg-slot\" data-icon=\"pause\"></span>
+        <div class=\topbar-title\ id=\game-title\ data-testid=\game-title\>Wood Puzzle</div>
+        <button class=\icon-btn\ id=\pause-btn\ aria-label=\Pause\ data-testid=\pause-btn\>
+          <span class=\svg-slot\ data-icon=\pause\></span>
         </button>
       </header>
 
       <!-- HUD -->
-      <div class=\"hud\" data-testid=\"hud\">
-        <div class=\"hud-cell\" data-testid=\"hud-moves\">
-          <span class=\"svg-slot\" data-icon=\"moves\"></span>
-          <span class=\"hud-cap\">Moves</span>
-          <span class=\"hud-val\" id=\"moves-val\">0</span>
+      <div class=\hud\ data-testid=\hud\>
+        <div class=\hud-cell\ data-testid=\hud-moves\>
+          <span class=\svg-slot\ data-icon=\moves\></span>
+          <span class=\hud-cap\>Moves</span>
+          <span class=\hud-val\ id=\moves-val\>0</span>
         </div>
-        <div class=\"hud-cell\" data-testid=\"hud-timer\">
-          <span class=\"svg-slot\" data-icon=\"timer\"></span>
-          <span class=\"hud-cap\">Time</span>
-          <span class=\"hud-val\" id=\"timer-val\">00:00</span>
+        <div class=\hud-cell\ data-testid=\hud-timer\>
+          <span class=\svg-slot\ data-icon=\timer\"></span>
+          <span class=\hud-cap\>Time</span>
+          <span class=\hud-val\ id=\timer-val\>00:00</span>
         </div>
-        <div class=\"hud-cell\" data-testid=\"hud-board\">
-          <span class=\"hud-cap\">Board</span>
-          <span class=\"hud-val\" id=\"board-val\">4×4</span>
+        <div class=\hud-cell\ data-testid=\hud-board\>
+          <span class=\hud-cap\>Board</span>
+          <span class=\hud-val\ id=\board-val\>4×4</span>
         </div>
-        <button class=\"hud-cell hud-toggle\" id=\"number-toggle\" data-testid=\"number-toggle\" hidden>
-          <span class=\"hud-cap\">Numbers</span>
-          <span class=\"hud-val\" id=\"numbers-state\">ON</span>
+        <button class=\hud-cell hud-toggle\ id=\number-toggle\ data-testid=\number-toggle\ hidden>
+          <span class=\hud-cap\>Numbers</span>
+          <span class=\hud-val\ id=\numbers-state\>ON</span>
         </button>
       </div>
 
       <!-- Game board -->
-      <div class=\"board-wrap\">
-        <div id=\"game-board\" class=\"board play\" data-testid=\"game-board\"></div>
+      <div class=\board-wrap\>
+        <div id=\game-board\ class=\board play\ data-testid=\game-board\></div>
       </div>
 
       <!-- Buttons under board -->
-      <div class=\"game-controls\" data-testid=\"game-controls\">
-        <button class=\"ctrl-btn\" id=\"shuffle-btn\" data-testid=\"shuffle-btn\"><span class=\"svg-slot\" data-icon=\"shuffle\"></span><span>Shuffle</span></button>
-        <button class=\"ctrl-btn\" id=\"hint-btn\" data-testid=\"hint-btn\"><span class=\"svg-slot\" data-icon=\"hint\"></span><span>Hint</span></button>
-        <button class=\"ctrl-btn\" id=\"undo-btn\" data-testid=\"undo-btn\"><span class=\"svg-slot\" data-icon=\"undo\"></span><span>Undo</span></button>
+      <div class=\game-controls\ data-testid=\game-controls\>
+        <button class=\ctrl-btn\ id=\shuffle-btn\ data-testid=\shuffle-btn\><span class=\svg-slot\ data-icon=\shuffle\></span><span>Shuffle</span></button>
+        <button class=\ctrl-btn\ id=\hint-btn\ data-testid=\hint-btn\><span class=\svg-slot\ data-icon=\hint\></span><span>Hint</span></button>
+        <button class=\ctrl-btn\ id=\undo-btn\ data-testid=\undo-btn\><span class=\svg-slot\ data-icon=\undo\></span><span>Undo</span></button>
         <button class=\"ctrl-btn\" id=\"redo-btn\" data-testid=\"redo-btn\"><span class=\"svg-slot\" data-icon=\"redo\"></span><span>Redo</span></button>
       </div>
     </div>
